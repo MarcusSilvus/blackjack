@@ -1,0 +1,38 @@
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-image: url(images/cardTable.jpeg);
+  background-size: cover;
+  text-align: center;
+} 
+
+.container {
+  box-sizing: border-box;
+
+}
+
+h1 {
+  color: goldenrod;
+  letter-spacing: .25em;
+}
+
+p {
+  color: #ccc;
+  font-weight: bold;
+}
+
+#message-el {
+  color: #ccc;
+  font-style: italic;
+}
+
+#start-btn {
+  background-color: goldenrod;
+  color: #016f32;
+  border: none;
+  border-radius: 3px;
+  height: 25px;
+  width: 150px;
+  font-weight: bold;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
