@@ -1,8 +1,9 @@
+
 let hasBlackjack = false;
 let isAlive = true;
 let firstCard;
 let secondCard;
-let cards = [firstCard, secondCard];
+let cards;
 let sum;
 let randomCard;
 let message = "";
@@ -29,6 +30,9 @@ function startGame() {
   let secondCard = randomCard;
   console.log(secondCard);
 
+  cards = [firstCard, secondCard];
+  
+
   sum = firstCard + secondCard;
   console.log("Sum: " + sum);
 
@@ -37,8 +41,11 @@ function startGame() {
     
 
 function renderGame() {
-    
-  cardsEl.textContent = cards[0] + ", " + cards[1];
+  
+  for (let i = 0; i < cards.length; i++) {
+  cardsEl.textContent = cards;
+  }
+
   cardSumEl.textContent = sum;
      
   if (sum <= 20)  {
@@ -63,7 +70,10 @@ function renderGame() {
   function newCard() {
     random();
     let drawCard = randomCard;
+    cards.push(drawCard);
+    
     sum += drawCard;
+    console.log("Array Length: " + cards);
     console.log("New Card: " + drawCard);
     console.log("New Sum: " + sum);
     renderGame();
