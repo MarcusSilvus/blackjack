@@ -20,10 +20,12 @@
   </div>
 
   <div class="container">
-    <p>Cards: </p>
-    <p>Sum: </p>
+    <p>Cards: <span id="cards-el"></span></p>
+    <p>Sum: <span id="cardSum-el"></span></p>
 
-    <button id="start-btn" onclick="startGame()">START GAME</button>
+    <button id="start-btn" class="btn" onclick="startGame()">START GAME</button>
+    <br>
+    <button id="newCard-btn" class="btn" onclick="newCard()">NEW CARD</button>
   </div>
 
   <script src="index.js"></script>
