@@ -41,9 +41,9 @@ function startGame() {
     
 
 function renderGame() {
-  
+  cardsEl.textContent = "Cards: ";
   for (let i = 0; i < cards.length; i++) {
-  cardsEl.textContent = cards;
+  cardsEl.textContent += cards[i] + " ";
   }
 
   cardSumEl.textContent = sum;
@@ -63,8 +63,6 @@ function renderGame() {
     
    messageEl.textContent = message;
 
-   console.log("Has blackjack: " + hasBlackjack);
-  console.log("Is alive: " + isAlive);
   }
 
   function newCard() {
