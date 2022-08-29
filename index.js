@@ -13,25 +13,23 @@ let cardsEl = document.getElementById("cards-el");
 let cardSumEl = document.getElementById("cardSum-el");
 
 // create function that randomly generate a value between 2 -11
-function random() {
+function getRandomCard() {
   let min = Math.ceil(2);
   let max = Math.floor(12);
-  randomCard = Math.floor(Math.random() * (max - min) + min);  
+  return Math.floor(Math.random() * (max - min) + min);  
 }
 
 function startGame() {
 
   isAlive = true;
-  random();
-  let firstCard = randomCard;
+  
+  let firstCard = getRandomCard();
   console.log(firstCard);
 
-  random();
-  let secondCard = randomCard;
+  let secondCard = getRandomCard();
   console.log(secondCard);
 
-  cards = [firstCard, secondCard];
-  
+  cards = [firstCard, secondCard];  
 
   sum = firstCard + secondCard;
   console.log("Sum: " + sum);
@@ -39,7 +37,6 @@ function startGame() {
   renderGame();
 }
     
-
 function renderGame() {
   cardsEl.textContent = "Cards: ";
   for (let i = 0; i < cards.length; i++) {
@@ -66,8 +63,7 @@ function renderGame() {
   }
 
   function newCard() {
-    random();
-    let drawCard = randomCard;
+    let drawCard = getRandomCard();
     cards.push(drawCard);
     
     sum += drawCard;
