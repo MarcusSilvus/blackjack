@@ -1,38 +1,40 @@
-
 let hasBlackjack = false;
-let isAlive = true;
+let isAlive = false;
 let firstCard;
 let secondCard;
 let cards;
 let sum;
-let randomCard;
 let message = "";
 
 let messageEl = document.getElementById("message-el");
 let cardsEl = document.getElementById("cards-el");
 let cardSumEl = document.getElementById("cardSum-el");
+let playerEl = document.getElementById("player-el");
+
+let player = {
+  name: "Mark",
+  chips: 150
+}
+
+
+
 
 // create function that randomly generate a value between 2 -11
 function getRandomCard() {
   let min = Math.ceil(2);
   let max = Math.floor(12);
-  return Math.floor(Math.random() * (max - min) + min);  
+  let randomCard = Math.floor(Math.random() * (max - min) + min); 
+  return randomCard; 
 }
 
 function startGame() {
 
   isAlive = true;
-  
+  playerEl.textContent = player.name + ": $" + player.chips;
   let firstCard = getRandomCard();
-  console.log(firstCard);
-
   let secondCard = getRandomCard();
-  console.log(secondCard);
-
   cards = [firstCard, secondCard];  
-
   sum = firstCard + secondCard;
-  console.log("Sum: " + sum);
 
   renderGame();
 }
@@ -47,28 +49,22 @@ function renderGame() {
      
   if (sum <= 20)  {
     message = "Would you like another card?";
-
   } else if (sum === 21) {
       message = "BLACKJACK! You win!";
-      hasBlackjack = true;
-          
+      hasBlackjack = true;        
   } else {
       message = "BUSTED! You lose!";
-      isAlive = false;
-        
+      isAlive = false; 
   }
     
    messageEl.textContent = message;
-
   }
 
   function newCard() {
+    if (isAlive && !hasBlackjack) {
     let drawCard = getRandomCard();
     cards.push(drawCard);
-    
     sum += drawCard;
-    console.log("Array Length: " + cards);
-    console.log("New Card: " + drawCard);
-    console.log("New Sum: " + sum);
     renderGame();
+   }
   }
