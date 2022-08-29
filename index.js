@@ -1,3 +1,8 @@
+let player = {
+  name: "Mark",
+  chips: 150
+}
+
 let hasBlackjack = false;
 let isAlive = false;
 let firstCard;
@@ -11,13 +16,7 @@ let cardsEl = document.getElementById("cards-el");
 let cardSumEl = document.getElementById("cardSum-el");
 let playerEl = document.getElementById("player-el");
 
-let player = {
-  name: "Mark",
-  chips: 150
-}
-
-
-
+playerEl.textContent = player.name + ": $" + player.chips;
 
 // create function that randomly generate a value between 2 -11
 function getRandomCard() {
@@ -30,7 +29,6 @@ function getRandomCard() {
 function startGame() {
 
   isAlive = true;
-  playerEl.textContent = player.name + ": $" + player.chips;
   let firstCard = getRandomCard();
   let secondCard = getRandomCard();
   cards = [firstCard, secondCard];  
